@@ -1,0 +1,165 @@
+@import "tailwindcss";
+
+/* Theme follows data-theme on <html>, set before paint by the script in layout.js */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+  /* garage, daylight: concrete + Duke orange */
+  --bg: #f2f0eb;
+  --fg: #151412;
+  --muted: #5e5a54;
+  --subtle: #9a958d;
+  --line: #dcd7ce;
+  --card: #ffffff;
+  --accent: #e65c00;
+  --accent-soft: rgba(230, 92, 0, 0.1);
+  --spot: rgba(230, 92, 0, 0.06);
+  --ridge-1: #c9c4ba;
+  --ridge-2: #ddd8cf;
+  --ridge-3: #d2cdc3;
+  --snow: #ffffff;
+  --footer: #e8e5de;
+  --sky-top: #cfd6dc;
+  --sky-bottom: #f2f0eb;
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  /* garage, after hours: asphalt + Duke orange */
+  --bg: #0c0c0e;
+  --fg: #f3f0ea;
+  --muted: #a39f98;
+  --subtle: #67645f;
+  --line: #24232a;
+  --card: #141418;
+  --accent: #ff6a00;
+  --accent-soft: rgba(255, 106, 0, 0.12);
+  --spot: rgba(255, 140, 50, 0.06);
+  --ridge-1: #121215;
+  --ridge-2: #18181c;
+  --ridge-3: #202026;
+  --snow: #c9c6c0;
+  --footer: #0a0a0c;
+  --sky-top: #111114;
+  --sky-bottom: #1a1a1f;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-line: var(--line);
+  --color-card: var(--card);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--fg);
+}
+
+/* Reveal on scroll: visible by default, hidden only while "pending" (set by JS) */
+.reveal {
+  transition:
+    opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--delay, 0ms);
+}
+.reveal.pending {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+/* The "solved" tick in the story section pops in like an achievement */
+.tick {
+  transition: transform 0.45s cubic-bezier(0.34, 1.8, 0.5, 1);
+  transition-delay: calc(var(--delay, 0ms) + 350ms);
+}
+.pending .tick {
+  transform: scale(0);
+}
+.strike {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 55%;
+  background-size: 100% 1px;
+  transition: background-size 0.6s ease;
+  transition-delay: calc(var(--delay, 0ms) + 200ms);
+}
+.pending .strike {
+  background-size: 0% 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal,
+  .tick,
+  .strike {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+  .hero-in,
+  .toast-in,
+  .pop-in,
+  .footer-rider {
+    animation: none;
+  }
+}
+
+/* Photo hero: slow cinematic zoom + scroll cue */
+.kenburns {
+  animation: kenburns 24s ease-in-out infinite alternate;
+}
+@keyframes kenburns {
+  from { transform: scale(1) translate3d(0, 0, 0); }
+  to { transform: scale(1.03) translate3d(-0.6%, -0.4%, 0); }
+}
+.scroll-dot {
+  animation: scrolldot 1.6s ease-in-out infinite;
+}
+@keyframes scrolldot {
+  0% { transform: translateY(0); opacity: 1; }
+  70% { transform: translateY(14px); opacity: 0; }
+  100% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kenburns, .scroll-dot { animation: none; }
+}
+
+/* Navbar while it floats over the hero photo: white text in both themes */
+.over-photo a,
+.over-photo .theme-toggle {
+  color: rgba(255, 255, 255, 0.88);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+.over-photo a:hover,
+.over-photo .theme-toggle:hover {
+  color: #fff;
+}
+.over-photo a.bg-fg {
+  background: #fff;
+  color: #000;
+}
+.over-photo a span.bg-fg {
+  background: #fff;
+  color: #000;
+}

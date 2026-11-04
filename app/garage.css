@@ -1,0 +1,170 @@
+/* ───────── Sanskar's Garage: hero door, neon, spotlights, pegboard, marquee ───────── */
+
+/* Roll-up garage door: lifts on load, revealing the photo behind it */
+.garage-door {
+  background:
+    repeating-linear-gradient(180deg, #2a2b30 0 46px, #1d1e22 46px 49px, #34353b 49px 52px),
+    #26272c;
+  box-shadow: inset 0 -30px 60px rgba(0, 0, 0, 0.55);
+  animation: door-up 1.6s cubic-bezier(0.7, 0, 0.2, 1) 0.45s forwards;
+  will-change: transform;
+}
+.garage-door::after {
+  /* the handle */
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 28px;
+  width: 120px;
+  height: 10px;
+  transform: translateX(-50%);
+  border-radius: 6px;
+  background: linear-gradient(#55575e, #3a3c42);
+  box-shadow: 0 2px 0 #111;
+}
+.door-light {
+  /* warm light spilling out under the door as it opens */
+  animation: door-light 2s ease-out 0.45s forwards;
+  opacity: 0;
+}
+@keyframes door-up {
+  0% { transform: translateY(0); }
+  12% { transform: translateY(-3%); }
+  20% { transform: translateY(-2%); }
+  100% { transform: translateY(-101%); }
+}
+@keyframes door-light {
+  0% { opacity: 0; }
+  30% { opacity: 1; }
+  100% { opacity: 0; }
+}
+.door-skip .garage-door,
+.door-skip .door-light {
+  display: none;
+}
+
+/* Neon sign */
+.neon {
+  color: #ffe9d6;
+  text-shadow:
+    0 0 4px #fff3,
+    0 0 10px #ff8a2a,
+    0 0 22px #ff6a00,
+    0 0 44px #ff6a00aa;
+  animation: neon-on 2.4s steps(1) 1.6s both;
+}
+.neon-tube {
+  box-shadow: 0 0 6px #ff8a2a, 0 0 18px #ff6a0099, inset 0 0 6px #ff8a2a88;
+  animation: neon-on 2.4s steps(1) 1.6s both;
+}
+@keyframes neon-on {
+  0% { opacity: 0.1; }
+  8% { opacity: 1; }
+  12% { opacity: 0.2; }
+  18% { opacity: 1; }
+  22% { opacity: 0.35; }
+  30%, 100% { opacity: 1; }
+}
+.neon-flicker {
+  animation: neon-hum 7s infinite 4s;
+}
+@keyframes neon-hum {
+  0%, 92%, 100% { opacity: 1; }
+  93% { opacity: 0.55; }
+  94% { opacity: 1; }
+  96% { opacity: 0.7; }
+}
+
+/* Sweeping workshop spotlights */
+.spot-beam {
+  position: absolute;
+  top: -10%;
+  width: 46vw;
+  height: 130%;
+  background: linear-gradient(180deg, rgba(255, 214, 170, 0.22), rgba(255, 214, 170, 0) 75%);
+  clip-path: polygon(46% 0, 54% 0, 100% 100%, 0 100%);
+  mix-blend-mode: screen;
+  transform-origin: top center;
+  pointer-events: none;
+  filter: blur(6px);
+}
+.spot-a { left: 2%; animation: sweep-a 9s ease-in-out infinite alternate; }
+.spot-b { right: 0%; animation: sweep-b 11s ease-in-out infinite alternate; }
+@keyframes sweep-a { from { transform: rotate(-14deg); } to { transform: rotate(10deg); } }
+@keyframes sweep-b { from { transform: rotate(12deg); } to { transform: rotate(-9deg); } }
+
+/* Concrete grain overlay */
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.08;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='.9'/></svg>");
+}
+
+/* Hazard stripe */
+.hazard {
+  background: repeating-linear-gradient(-45deg, var(--accent) 0 14px, #111 14px 28px);
+}
+
+/* Pegboard + hanging tool tags */
+.pegboard {
+  background-color: var(--card);
+  background-image: radial-gradient(circle, color-mix(in oklab, var(--fg) 18%, transparent) 2px, transparent 2.5px);
+  background-size: 26px 26px;
+}
+.tool-tag {
+  transform-origin: 50% -10px;
+  transition: transform 0.3s ease, border-color 0.3s, color 0.3s;
+}
+.tool-tag::before {
+  /* the hook hole */
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  margin-left: -3.5px;
+  border-radius: 50%;
+  background: var(--bg);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+.tool-tag:hover {
+  animation: swing 0.9s ease-in-out;
+  border-color: var(--accent);
+  color: var(--accent);
+}
+@keyframes swing {
+  0% { transform: rotate(0); }
+  20% { transform: rotate(9deg); }
+  40% { transform: rotate(-7deg); }
+  60% { transform: rotate(4deg); }
+  80% { transform: rotate(-2deg); }
+  100% { transform: rotate(0); }
+}
+
+/* Endless marquee */
+.marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+.marquee-rev {
+  animation-direction: reverse;
+}
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+
+/* Outline text */
+.text-stroke {
+  -webkit-text-stroke: 1.5px color-mix(in oklab, var(--fg) 45%, transparent);
+  color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .garage-door, .door-light { display: none; }
+  .neon, .neon-tube, .neon-flicker, .spot-beam, .marquee, .tool-tag:hover { animation: none; }
+}
