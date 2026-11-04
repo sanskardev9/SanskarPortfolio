@@ -99,7 +99,7 @@ export default function Builds() {
     <section id="builds" aria-label="Projects" className="mx-auto max-w-6xl px-4 pt-28 sm:px-6 md:px-12 md:pt-36">
       <div className="px-2 sm:px-0">
         <p className="font-mono text-xs tracking-widest text-accent">02 · IN THE GARAGE</p>
-        <h2 className="mt-3 max-w-3xl text-4xl leading-[1.05] font-black tracking-tight text-balance md:text-6xl">Six builds. All real, most of them live.</h2>
+        <h2 className="mt-3 max-w-3xl text-4xl leading-[1.05] font-black tracking-tight text-balance md:text-6xl">Things I&apos;ve built, end to end.</h2>
         <p className="mt-4 max-w-xl text-lg text-muted">Scroll through the build sheets. Each one has the problem, what I built, and the stack behind it.</p>
       </div>
       <div ref={ref} className="relative mt-14 space-y-[12vh] pb-[8vh]">

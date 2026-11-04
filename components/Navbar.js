@@ -26,8 +26,9 @@ export default function Navbar() {
     <header className={`fixed inset-x-0 top-0 z-40 transition-all duration-500 ${solid ? "border-b border-line bg-bg/75 backdrop-blur-xl" : "over-photo border-b border-transparent"}`}>
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 md:px-12">
         <Link href="/" className="flex items-center gap-2.5 font-bold tracking-tight">
-          <span className="grid size-8 place-items-center rounded-lg bg-[#ff6a00] font-mono text-xs font-black text-black">SS</span>
-          <span className="hidden sm:inline">Sanskar Singh</span>
+          <span>
+            Sanskar Singh<span className="text-[#ff6a00]">.</span>
+          </span>
         </Link>
         <nav aria-label="Main" className="flex items-center gap-1 sm:gap-1.5">
           {links.map((l) => (
