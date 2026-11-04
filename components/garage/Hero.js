@@ -12,9 +12,9 @@ const LINES = [
   { t: "$ whoami", c: "text-white/90" },
   { t: "sanskar · full-stack developer", c: "text-white/60" },
   { t: "$ ls ~/builds", c: "text-white/90" },
-  { t: "fitmate  jobchain  ridemate  routemate  realtimerivals  moneymate", c: "text-[#ffb36b]" },
+  { t: "fitmate  jobchain  ridemate  realtimerivals  moneymate", c: "text-[#ffb36b]" },
   { t: "$ npm run ship", c: "text-white/90" },
-  { t: "✓ 6 apps built end to end", c: "text-emerald-400" },
+  { t: "✓ 5 apps built end to end", c: "text-emerald-400" },
 ];
 
 function Terminal() {

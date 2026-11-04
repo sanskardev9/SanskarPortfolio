@@ -96,31 +96,32 @@ export const projects = [
     ],
     accent: "#f97316",
   },
-  {
-    slug: "routemate",
-    name: "RouteMate",
-    featured: false,
-    problem: null,
-    tagline: "Route planning and map-based vehicle simulation.",
-    summary:
-      "Create optimized routes on a self-hosted Valhalla routing engine with toll and highway avoidance, draw no-entry zones, and watch vehicles move along the route on an interactive map.",
-    highlights: [
-      "Optimized routes from a Valhalla routing engine, with toll and highway avoidance",
-      "Interactive MapLibre map with route rendering and vehicle movement simulation",
-      "User-defined no-entry zones handled with Supabase and Shapely",
-    ],
-    features: [
-      "Route creation flow that generates optimized routes with Valhalla",
-      "Request–response pipeline for constraint-based routing (toll / highway avoidance)",
-      "Interactive MapLibre map with route rendering",
-      "Vehicle movement simulation along the route",
-      "User-defined geospatial constraints (no-entry zones) with Supabase and Shapely",
-    ],
-    stack: ["Valhalla", "MapLibre", "Supabase", "Shapely", "Python"],
-    live: null,
-    repos: [],
-    accent: "#a855f7",
-  },
+  // RouteMate hidden for now (from CV, no public repo/demo yet). Uncomment to show it again.
+  // {
+  //   slug: "routemate",
+  //   name: "RouteMate",
+  //   featured: false,
+  //   problem: null,
+  //   tagline: "Route planning and map-based vehicle simulation.",
+  //   summary:
+  //     "Create optimized routes on a self-hosted Valhalla routing engine with toll and highway avoidance, draw no-entry zones, and watch vehicles move along the route on an interactive map.",
+  //   highlights: [
+  //     "Optimized routes from a Valhalla routing engine, with toll and highway avoidance",
+  //     "Interactive MapLibre map with route rendering and vehicle movement simulation",
+  //     "User-defined no-entry zones handled with Supabase and Shapely",
+  //   ],
+  //   features: [
+  //     "Route creation flow that generates optimized routes with Valhalla",
+  //     "Request–response pipeline for constraint-based routing (toll / highway avoidance)",
+  //     "Interactive MapLibre map with route rendering",
+  //     "Vehicle movement simulation along the route",
+  //     "User-defined geospatial constraints (no-entry zones) with Supabase and Shapely",
+  //   ],
+  //   stack: ["Valhalla", "MapLibre", "Supabase", "Shapely", "Python"],
+  //   live: null,
+  //   repos: [],
+  //   accent: "#a855f7",
+  // },
   {
     slug: "realtimerivals",
     image: "/photos/realtimerivals.jpg",
