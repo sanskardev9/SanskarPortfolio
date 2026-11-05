@@ -38,9 +38,9 @@ export default function Contact() {
               <a href={site.github} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-1.5 rounded-full border border-line px-3 py-3 text-sm font-semibold transition hover:-translate-y-0.5 hover:border-fg sm:gap-2 sm:px-5 sm:py-3.5">
                 GitHub <svg viewBox="0 0 24 24" className="hidden size-3.5 sm:block" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M7 17L17 7M9 7h8v8" /></svg>
               </a>
-              <a href={site.cv} onClick={openCV} className="inline-flex items-center justify-center gap-1.5 rounded-full border border-line px-3 py-3 text-sm font-semibold transition hover:-translate-y-0.5 hover:border-fg sm:gap-2 sm:px-5 sm:py-3.5">
+              {/* <a href={site.cv} onClick={openCV} className="inline-flex items-center justify-center gap-1.5 rounded-full border border-line px-3 py-3 text-sm font-semibold transition hover:-translate-y-0.5 hover:border-fg sm:gap-2 sm:px-5 sm:py-3.5">
                 CV <svg viewBox="0 0 24 24" className="hidden size-3.5 sm:block" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M7 17L17 7M9 7h8v8" /></svg>
-              </a>
+              </a> */}
             </div>
           </div>
         </Reveal>
