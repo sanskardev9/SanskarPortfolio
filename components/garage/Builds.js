@@ -78,12 +78,12 @@ function BuildCard({ p, i, total, progress }) {
           </dl>
           <div className="mt-5 flex flex-wrap gap-2">
             {links.map((l) => (
-              <a key={l.url} href={l.url} target="_blank" rel="noreferrer" className={`rounded-full px-4 py-2 text-sm font-semibold transition hover:-translate-y-0.5 ${l.solid ? "bg-fg text-bg" : "border border-line hover:border-fg"}`}>
-                {l.label} ↗
+              <a key={l.url} href={l.url} target="_blank" rel="noreferrer" className={`inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold transition hover:-translate-y-0.5 ${l.solid ? "bg-fg text-bg" : "border border-line hover:border-fg"}`}>
+                {l.label} <svg viewBox="0 0 24 24" className="size-3.5" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M7 17L17 7M9 7h8v8" /></svg>
               </a>
             ))}
-            <Link href={`/projects/${p.slug}`} className="rounded-full px-4 py-2 text-sm font-semibold text-accent hover:underline">
-              Full build sheet →
+            <Link href={`/projects/${p.slug}`} className="inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold text-accent hover:underline">
+              Full build sheet <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M5 12h14M13 6l6 6-6 6" /></svg>
             </Link>
           </div>
         </div>

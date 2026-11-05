@@ -146,20 +146,20 @@ body {
 }
 
 /* Navbar while it floats over the hero photo: white text in both themes */
-.over-photo a,
-.over-photo .theme-toggle {
+[data-theme="dark"] .over-photo a,
+[data-theme="dark"] .over-photo .theme-toggle {
   color: rgba(255, 255, 255, 0.88);
   border-color: rgba(255, 255, 255, 0.35);
 }
-.over-photo a:hover,
-.over-photo .theme-toggle:hover {
+[data-theme="dark"] .over-photo a:hover,
+[data-theme="dark"] .over-photo .theme-toggle:hover {
   color: #fff;
 }
-.over-photo a.bg-fg {
+[data-theme="dark"] .over-photo a.bg-fg {
   background: #fff;
   color: #000;
 }
-.over-photo a span.bg-fg {
+[data-theme="dark"] .over-photo a span.bg-fg {
   background: #fff;
   color: #000;
 }

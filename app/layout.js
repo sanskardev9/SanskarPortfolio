@@ -1,6 +1,9 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import { site } from "@/data/site";
 import Spotlight from "@/components/Spotlight";
+import SmoothScroll from "@/components/fx/SmoothScroll";
+import CVThrow from "@/components/garage/CVThrow";
+import DebugPanel from "@/components/DebugPanel";
 import "./globals.css";
 import "./garage.css";
 
@@ -41,8 +44,11 @@ export default function RootLayout({ children }) {
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className="min-h-dvh font-sans leading-relaxed">
+        <SmoothScroll />
         <Spotlight />
         {children}
+        <CVThrow />
+        <DebugPanel />
       </body>
     </html>
   );

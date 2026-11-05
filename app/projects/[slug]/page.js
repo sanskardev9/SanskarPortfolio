@@ -32,7 +32,7 @@ export default async function ProjectPage({ params }) {
     <div id="top" className="relative z-10 mx-auto max-w-3xl px-6 py-10 md:px-12 md:py-16">
       <nav className="flex items-center justify-between">
         <Link href="/#projects" className="group inline-flex items-center gap-2 text-sm font-medium text-muted hover:text-fg">
-          <span className="transition group-hover:-translate-x-1">←</span> All projects
+          <span className="transition group-hover:-translate-x-1"><svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M19 12H5M11 6l-6 6 6 6" /></svg></span> All projects
         </Link>
         <ThemeToggle />
       </nav>
@@ -93,7 +93,7 @@ export default async function ProjectPage({ params }) {
           <span className="block text-xs font-semibold uppercase tracking-widest text-muted">Next project</span>
           <span className="mt-1 block text-xl font-semibold group-hover:text-accent">{next.name}</span>
         </span>
-        <span className="text-2xl transition group-hover:translate-x-1">→</span>
+        <span className="transition group-hover:translate-x-1"><svg viewBox="0 0 24 24" className="size-6" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
       </Link>
     </div>
     <Footer />

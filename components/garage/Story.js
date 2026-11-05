@@ -9,16 +9,16 @@ import { story, getProject } from "@/data/projects";
 
 function Panel({ p, i }) {
   return (
-    <article className="relative flex h-full w-[min(78vw,560px)] shrink-0 flex-col justify-between overflow-hidden rounded-3xl border border-line bg-card p-8 md:p-10">
+    <article className="relative flex h-full w-full shrink-0 flex-col justify-between gap-8 overflow-hidden rounded-3xl border border-line bg-card p-6 sm:p-8 md:w-[min(78vw,560px)] md:p-10">
       <span className="absolute -top-24 -right-24 size-72 rounded-full opacity-25 blur-3xl" style={{ background: p.accent }} />
       <div>
         <p className="font-mono text-xs tracking-widest text-subtle">PROBLEM {String(i + 1).padStart(2, "0")}</p>
-        <p className="mt-4 text-2xl leading-snug font-semibold tracking-tight text-muted md:text-3xl">“{p.problem}”</p>
+        <p className="mt-3 text-xl leading-snug font-semibold tracking-tight text-muted sm:text-2xl md:mt-4 md:text-3xl">“{p.problem}”</p>
       </div>
-      <div className="mt-10">
+      <div>
         <p className="font-mono text-xs tracking-widest text-subtle">SO I BUILT</p>
-        <a href={`/projects/${p.slug}`} className="group mt-2 flex items-center gap-3">
-          <span className="text-5xl font-black tracking-tight md:text-6xl" style={{ color: p.accent }}>
+        <a href={`/projects/${p.slug}`} className="group mt-2 flex min-w-0 items-center gap-2 sm:gap-3">
+          <span className="text-[2.6rem] leading-none font-black tracking-tight sm:text-5xl md:text-6xl" style={{ color: p.accent }}>
             {p.name}
           </span>
           <svg viewBox="0 0 24 24" className="size-7 text-subtle transition group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-fg" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
@@ -51,11 +51,11 @@ export default function Story() {
   return (
     <section id="story" aria-label="Why I build">
       {/* phones: vertical stack */}
-      <div className="space-y-5 px-6 py-24 md:hidden">
+      <div className="space-y-5 px-5 py-20 md:hidden">
         {intro}
         <div className="space-y-4 pt-6">
           {items.map((p, i) => (
-            <div key={p.slug} className="h-[340px]">
+            <div key={p.slug}>
               <Panel p={p} i={i} />
             </div>
           ))}

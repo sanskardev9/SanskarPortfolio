@@ -1,5 +1,7 @@
 "use client";
 
+import { openCV } from "@/components/garage/CVThrow";
+
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { site } from "@/data/site";
@@ -36,7 +38,7 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
-          <a href={site.cv} target="_blank" rel="noreferrer" className="rounded-full border border-line px-3.5 py-1.5 text-sm font-medium transition hover:border-fg">
+          <a href={site.cv} onClick={openCV} className="rounded-full border border-line px-3.5 py-1.5 text-sm font-medium transition hover:border-fg">
             CV
           </a>
           <a href="/#contact" className="rounded-full bg-fg px-4 py-1.5 text-sm font-semibold text-bg transition hover:opacity-85">

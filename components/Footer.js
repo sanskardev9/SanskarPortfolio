@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { projects } from "@/data/projects";
 import { site } from "@/data/site";
@@ -11,25 +10,15 @@ const lnk = "text-[15px] text-muted transition hover:text-fg";
 
 export default function Footer() {
   return (
-    <footer className="relative mt-24 overflow-hidden">
-      {/* Horizon: photo rises like a sun behind the ridges, a tiny rider crosses the front */}
-      <div className="relative h-44 sm:h-56">
-        <div className="group absolute bottom-[40%] left-1/2 -translate-x-1/2 sm:left-[16%] sm:translate-x-0">
-          <div className="absolute -inset-5 rounded-full bg-accent/25 blur-2xl transition group-hover:bg-accent/40" />
-          <Image
-            src="/sanskar.jpg"
-            alt="Sanskar Singh"
-            width={120}
-            height={120}
-            className="relative size-24 translate-y-0 rounded-full border-4 border-[var(--ridge-3)] object-cover shadow-xl transition duration-500 group-hover:-translate-y-2 sm:size-28"
-          />
-        </div>
+    <footer className="relative mt-16 overflow-hidden sm:mt-24">
+      {/* Horizon: layered ridges with a tiny rider crossing the front */}
+      <div className="relative h-24 sm:h-40">
         <svg viewBox="0 0 1440 240" preserveAspectRatio="none" className="absolute inset-x-0 bottom-0 h-full w-full" aria-hidden>
           <path d={ridges[0]} fill="var(--ridge-3)" />
           <path d={ridges[1]} fill="var(--ridge-2)" />
           <path d={ridges[2]} fill="var(--footer)" />
         </svg>
-        <svg viewBox="0 0 40 24" className="footer-rider absolute bottom-[8%] h-4 w-7 text-fg/70" fill="currentColor" aria-hidden>
+        <svg viewBox="0 0 40 24" className="footer-rider absolute bottom-[10%] h-3.5 w-6 text-accent sm:h-4 sm:w-7" fill="currentColor" aria-hidden>
           <circle cx="8" cy="18" r="5" fill="none" stroke="currentColor" strokeWidth="2.5" />
           <circle cx="32" cy="18" r="5" fill="none" stroke="currentColor" strokeWidth="2.5" />
           <path d="M8 18 L16 10 L26 10 L32 18 M16 10 L14 6 M26 10 L28 5 L31 5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -63,10 +52,10 @@ export default function Footer() {
             <div>
               <p className={col}>This site</p>
               <ul className="space-y-2.5">
-                {["Story", "Projects", "Skills", "About", "Contact"].map((s) => (
-                  <li key={s}>
-                    <a href={`/#${s.toLowerCase()}`} className={lnk}>
-                      {s}
+                {[["Builds", "builds"], ["Why I build", "story"], ["Experience", "experience"], ["Toolbox", "skills"], ["About", "about"], ["Contact", "contact"]].map(([label, id]) => (
+                  <li key={id}>
+                    <a href={`/#${id}`} className={lnk}>
+                      {label}
                     </a>
                   </li>
                 ))}
@@ -84,7 +73,9 @@ export default function Footer() {
         </div>
 
         <div className="mx-auto flex max-w-6xl flex-col-reverse gap-6 border-t border-line px-6 py-6 text-sm text-subtle sm:flex-row sm:items-center sm:justify-between md:px-12">
-          <p>© 2026 Sanskar Singh. Built with Next.js, Tailwind CSS and three.js.</p>
+          <p>
+            © 2026 Sanskar Singh. Built with Next.js, Tailwind CSS and Motion.
+          </p>
           <div className="flex items-center gap-2">
             {[
               { href: site.github, label: "GitHub", Icon: GitHubIcon },
